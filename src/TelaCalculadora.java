@@ -6,6 +6,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
 	}
 
 	private void initComponents() {
+		this.setTitle("Calculadora Simples");
 		jPanel1 = new javax.swing.JPanel();
 		jScrollPane1 = new javax.swing.JScrollPane();
 		visorCalculador = new javax.swing.JTextPane();
@@ -20,6 +21,8 @@ public class TelaCalculadora extends javax.swing.JFrame {
 		botao2 = new javax.swing.JButton();
 		botao3 = new javax.swing.JButton();
 		botao0 = new javax.swing.JButton();
+		botaoVirgula = new javax.swing.JButton();
+		botaoMaisMenos = new javax.swing.JButton();
 		botaoVezes = new javax.swing.JButton();
 		botaoDiv = new javax.swing.JButton();
 		botaoMenos = new javax.swing.JButton();
@@ -61,6 +64,14 @@ public class TelaCalculadora extends javax.swing.JFrame {
 			}
 		});
 
+		botao4.setFont(new java.awt.Font("Ubuntu", 0, 24));
+		botao4.setText("4");
+		botao4.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				botao4MouseClicked(evt);
+			}
+		});
+
 		botao5.setFont(new java.awt.Font("Ubuntu", 0, 24));
 		botao5.setText("5");
 		botao5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -74,14 +85,6 @@ public class TelaCalculadora extends javax.swing.JFrame {
 		botao6.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				botao6MouseClicked(evt);
-			}
-		});
-
-		botao4.setFont(new java.awt.Font("Ubuntu", 0, 24));
-		botao4.setText("4");
-		botao4.addMouseListener(new java.awt.event.MouseAdapter() {
-			public void mouseClicked(java.awt.event.MouseEvent evt) {
-				botao4MouseClicked(evt);
 			}
 		});
 
@@ -114,6 +117,22 @@ public class TelaCalculadora extends javax.swing.JFrame {
 		botao0.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				botao0MouseClicked(evt);
+			}
+		});
+
+		botaoVirgula.setFont(new java.awt.Font("Ubuntu", 0, 24));
+		botaoVirgula.setText(",");
+		botaoVirgula.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				botaoVirgulaMouseClicked(evt);
+			}
+		});
+
+		botaoMaisMenos.setFont(new java.awt.Font("Ubuntu", 0, 24));
+		botaoMaisMenos.setText("+/-");
+		botaoMaisMenos.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				botaoMaisMenosMouseClicked(evt);
 			}
 		});
 
@@ -159,157 +178,77 @@ public class TelaCalculadora extends javax.swing.JFrame {
 		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
 		jPanel1.setLayout(jPanel1Layout);
 		jPanel1Layout.setHorizontalGroup(
-				jPanel1Layout.createParallelGroup
-				(javax.swing.GroupLayout.Alignment.LEADING)
+			jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, true)
 				.addGroup(jPanel1Layout.createSequentialGroup()
-						.addContainerGap()
-						.addGroup(jPanel1Layout.createParallelGroup
-								(javax.swing.GroupLayout.Alignment.LEADING)
-								.addGroup(jPanel1Layout.createSequentialGroup()
-										.addComponent
-										(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(0, 0, Short.MAX_VALUE))
-								.addGroup(jPanel1Layout.createSequentialGroup()
-										.addGroup(jPanel1Layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.TRAILING)
-												.addComponent
-												(botaoCE, javax.swing.GroupLayout.Alignment.LEADING,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-												.addGroup(jPanel1Layout.createSequentialGroup()
-														.addGap(26, 26, 26)
-														.addComponent(botao0, javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-												.addGroup(javax.swing.GroupLayout.Alignment.LEADING,
-														jPanel1Layout.createSequentialGroup()
-														.addComponent(botao1, javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-														.addPreferredGap
-														(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-														.addComponent(botao2, javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-												.addGroup(javax.swing.GroupLayout.Alignment.LEADING,
-														jPanel1Layout.createSequentialGroup()
-														.addGroup(jPanel1Layout.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-																.addComponent(botao7,
-																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																		javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-																.addComponent(botao4,
-																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																		javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-														.addPreferredGap(
-																javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-														.addGroup(jPanel1Layout.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-																.addComponent(botao5,
-																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																		javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-																.addComponent(botao8,
-																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																		javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-										.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(jPanel1Layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
-												.addGroup(jPanel1Layout.createSequentialGroup()
-														.addComponent(botao3, javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-														.addPreferredGap(
-																javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-														.addComponent(botaoMais,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-												.addComponent(botaoIgual, javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-												.addGroup(jPanel1Layout.createSequentialGroup()
-														.addGroup(jPanel1Layout.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-																.addGroup(jPanel1Layout.createSequentialGroup()
-																		.addComponent(botao6,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE)
-																		.addPreferredGap(
-																				javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																		.addComponent(botaoMenos,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE))
-																.addComponent(botaoVezes,
-																		javax.swing.GroupLayout.Alignment.TRAILING,
-																		javax.swing.GroupLayout.DEFAULT_SIZE,
-																		javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-																.addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-																		jPanel1Layout.createSequentialGroup()
-																		.addComponent(botao9,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE)
-																		.addPreferredGap(
-																				javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																		.addComponent(botaoDiv,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				Short.MAX_VALUE)))
-														.addGap(2, 2, 2)))))
-						.addContainerGap())
-				);
-		jPanel1Layout.setVerticalGroup(
-				jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(jPanel1Layout.createSequentialGroup()
-						.addGap(44, 44, 44)
-						.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE,
-								javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addGap(24, 24, 24)
-						.addGroup(jPanel1Layout.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING, false)
-								.addComponent(botaoVezes, javax.swing.GroupLayout.PREFERRED_SIZE, 33,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(botaoCE, javax.swing.GroupLayout.DEFAULT_SIZE,
-										javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addGroup(jPanel1Layout.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.BASELINE, false)
-								.addComponent(botao7, javax.swing.GroupLayout.PREFERRED_SIZE, 0,
-										Short.MAX_VALUE)
-								.addComponent(botao8, javax.swing.GroupLayout.PREFERRED_SIZE, 0,
-										Short.MAX_VALUE)
-								.addComponent(botao9, javax.swing.GroupLayout.PREFERRED_SIZE, 33,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(botaoDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 33,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-						.addGroup(jPanel1Layout.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(botao5, javax.swing.GroupLayout.PREFERRED_SIZE, 0,
-										Short.MAX_VALUE)
-								.addComponent(botao6, javax.swing.GroupLayout.PREFERRED_SIZE, 0,
-										Short.MAX_VALUE)
-								.addComponent(botao4, javax.swing.GroupLayout.PREFERRED_SIZE, 0,
-										Short.MAX_VALUE)
-								.addComponent(botaoMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 33,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addGroup(jPanel1Layout.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.BASELINE)
-								.addComponent(botao1, javax.swing.GroupLayout.PREFERRED_SIZE, 33,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(botao2, javax.swing.GroupLayout.PREFERRED_SIZE, 33,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(botao3, javax.swing.GroupLayout.PREFERRED_SIZE, 33,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(botaoMais, javax.swing.GroupLayout.PREFERRED_SIZE, 33,
-										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-						.addGroup(jPanel1Layout.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING, false)
-								.addComponent(botao0, javax.swing.GroupLayout.PREFERRED_SIZE, 33,
+					.addContainerGap()
+					.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, true)
+						.addGroup(jPanel1Layout.createSequentialGroup()
+							.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, Short.MAX_VALUE)
+							.addGap(0, 0, 0))
+						.addGroup(jPanel1Layout.createSequentialGroup()
+							.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, true)
+								.addComponent(botaoCE, javax.swing.GroupLayout.PREFERRED_SIZE, 130, Short.MAX_VALUE)
+								.addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+									.addComponent(botao7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE)
+									.addComponent(botao8, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE))
+								.addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+									.addComponent(botao4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE)
+									.addComponent(botao5, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE))
+								.addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+									.addComponent(botao1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE)
+									.addComponent(botao2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE))
+								.addComponent(botao0, javax.swing.GroupLayout.PREFERRED_SIZE, 130, Short.MAX_VALUE))
+							.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, true)
+								.addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+									.addComponent(botaoMaisMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE)
+									.addComponent(botaoVezes, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE))
+								.addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+									.addComponent(botao9, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE)
+									.addComponent(botaoDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE))
+								.addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+									.addComponent(botao6, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE)
+									.addComponent(botaoMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE))
+								.addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+									.addComponent(botao3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE)
+									.addComponent(botaoMais, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE))
+								.addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+									.addComponent(botaoVirgula, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE)
+									.addComponent(botaoIgual, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE)))
+						)
+					)
+				)
+		);
 
-										javax.swing.GroupLayout.PREFERRED_SIZE)
-								.addComponent(botaoIgual, javax.swing.GroupLayout.PREFERRED_SIZE, 33,
-										javax.swing.GroupLayout.PREFERRED_SIZE)))
-				);
+		jPanel1Layout.setVerticalGroup(
+			jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, true)
+				.addGroup(jPanel1Layout.createSequentialGroup()
+					.addGap(30, 30, 30)
+					.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, Short.MAX_VALUE)
+					.addGap(24, 24, 24)
+					.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, true)
+						.addComponent(botaoCE, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(botaoMaisMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(botaoVezes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+					.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, true)
+						.addComponent(botao7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(botao8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(botao9, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(botaoDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+					.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, true)
+						.addComponent(botao4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(botao5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(botao6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(botaoMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+					.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, true)
+						.addComponent(botao1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(botao2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(botao3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(botaoMais, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+					.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, true)
+						.addComponent(botao0, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(botaoVirgula, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(botaoIgual, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+		);
 
 		jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[]
 				{botao7, botao8, botao9});
@@ -411,6 +350,25 @@ public class TelaCalculadora extends javax.swing.JFrame {
 		visorCalculador.setText(valor + "0");
 	}
 
+	private void botaoVirgulaMouseClicked(java.awt.event.MouseEvent evt) {
+		String valor = visorCalculador.getText();
+		if (!valor.contains(",")) {
+			visorCalculador.setText(valor + ",");
+		}
+		if (valor.isEmpty()) {
+			visorCalculador.setText("0,");
+		}
+	}
+
+	private void botaoMaisMenosMouseClicked(java.awt.event.MouseEvent evt) {
+		String valor = visorCalculador.getText();
+		if (valor.startsWith("-")) {
+			visorCalculador.setText(valor.substring(1));
+		} else {
+			visorCalculador.setText("-" + valor);
+		}
+	}
+
 	private void botaoIgualMouseClicked(java.awt.event.MouseEvent evt) {
 		String valor = visorCalculador.getText();
 		System.out.println(">>>"+valor);
@@ -462,6 +420,8 @@ public class TelaCalculadora extends javax.swing.JFrame {
     private javax.swing.JButton botao7;
     private javax.swing.JButton botao8;
     private javax.swing.JButton botao9;
+	private javax.swing.JButton botaoVirgula;
+	private javax.swing.JButton botaoMaisMenos;
     private javax.swing.JButton botaoCE;
     private javax.swing.JButton botaoDiv;
     private javax.swing.JButton botaoIgual;
