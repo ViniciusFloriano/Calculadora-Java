@@ -9,8 +9,9 @@ public class TelaCalculadora extends javax.swing.JFrame {
 		this.setTitle("Calculadora Simples");
 		jPanel1 = new javax.swing.JPanel();
 		jScrollPane1 = new javax.swing.JScrollPane();
-		visorCalculador = new javax.swing.JTextPane();
+		visorCalculador = new javax.swing.JTextPane(); visorCalculador.setEditable(false);
 		botaoCE = new javax.swing.JButton();
+		botaoBackspace = new javax.swing.JButton();
 		botao7 = new javax.swing.JButton();
 		botao8 = new javax.swing.JButton();
 		botao9 = new javax.swing.JButton();
@@ -34,9 +35,18 @@ public class TelaCalculadora extends javax.swing.JFrame {
 		jScrollPane1.setViewportView(visorCalculador);
 
 		botaoCE.setText("CE");
+		botaoBackspace.setFont(new java.awt.Font("Ubuntu", 0, 24));
 		botaoCE.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				botaoCEMouseClicked(evt);
+			}
+		});
+
+		botaoBackspace.setText("⌫");
+		botaoBackspace.setFont(new java.awt.Font("Ubuntu", 0, 18));
+		botaoBackspace.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
+				botaoBackspaceMouseClicked(evt);
 			}
 		});
 
@@ -187,7 +197,9 @@ public class TelaCalculadora extends javax.swing.JFrame {
 							.addGap(0, 0, 0))
 						.addGroup(jPanel1Layout.createSequentialGroup()
 							.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, true)
-								.addComponent(botaoCE, javax.swing.GroupLayout.PREFERRED_SIZE, 130, Short.MAX_VALUE)
+								.addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+									.addComponent(botaoCE, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE)
+									.addComponent(botaoBackspace, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE))
 								.addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
 									.addComponent(botao7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE)
 									.addComponent(botao8, javax.swing.GroupLayout.PREFERRED_SIZE, 65, Short.MAX_VALUE))
@@ -227,6 +239,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
 					.addGap(24, 24, 24)
 					.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, true)
 						.addComponent(botaoCE, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(botaoBackspace, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addComponent(botaoMaisMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
 						.addComponent(botaoVezes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
 					.addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, true)
@@ -275,6 +288,13 @@ public class TelaCalculadora extends javax.swing.JFrame {
 
 	private void botaoCEMouseClicked(java.awt.event.MouseEvent evt) {
 		visorCalculador.setText("");
+	}
+
+	private void botaoBackspaceMouseClicked(java.awt.event.MouseEvent evt) {
+		String valor = visorCalculador.getText();
+		if (!valor.isEmpty()) {
+			visorCalculador.setText(valor.substring(0, valor.length() - 1));
+		}
 	}
 
 	private void botaoVezesMouseClicked(java.awt.event.MouseEvent evt) {
@@ -349,11 +369,21 @@ public class TelaCalculadora extends javax.swing.JFrame {
 
 	private void botaoVirgulaMouseClicked(java.awt.event.MouseEvent evt) {
 		String valor = visorCalculador.getText();
-		if (!valor.contains(",")) {
-			visorCalculador.setText(valor + ",");
-		}
-		if (valor.isEmpty()) {
-			visorCalculador.setText("0,");
+		int idx = Math.max(
+			Math.max(valor.lastIndexOf("+"), valor.lastIndexOf("-")),
+			Math.max(valor.lastIndexOf("*"), valor.lastIndexOf("/"))
+		);
+		int idxParenteses = valor.lastIndexOf("(");
+		if (idxParenteses > idx) idx = idxParenteses;
+
+		String ultimo = (idx >= 0) ? valor.substring(idx + 1) : valor;
+
+		if (!ultimo.contains(",")) {
+			if (ultimo.isEmpty()) {
+				visorCalculador.setText(valor + "0,");
+			} else {
+				visorCalculador.setText(valor + ",");
+			}
 		}
 	}
 
@@ -430,6 +460,7 @@ public class TelaCalculadora extends javax.swing.JFrame {
 	private javax.swing.JButton botaoVirgula;
 	private javax.swing.JButton botaoMaisMenos;
     private javax.swing.JButton botaoCE;
+	private javax.swing.JButton botaoBackspace;
     private javax.swing.JButton botaoDiv;
     private javax.swing.JButton botaoIgual;
     private javax.swing.JButton botaoMais;
