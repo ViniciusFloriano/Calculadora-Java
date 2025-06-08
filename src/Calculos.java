@@ -17,29 +17,37 @@ public class Calculos {
     private String calcularValor(List<Double> listaNumeros, List<Character> listaOperadores) {
         if (listaNumeros.isEmpty()) return "0";
         double total = listaNumeros.get(0);
-        int max = Math.min(listaOperadores.size(), listaNumeros.size() - 1);
-        for (int i = 0; i < max; i++) {
+        for (int i = 0; i < listaOperadores.size(); i++) {
             char operador = listaOperadores.get(i);
+
+            if (operador == '%') {
+                continue;
+            } 
+
             double proximoNumero = listaNumeros.get(i + 1);
+
+            if (i + 1 < listaOperadores.size() && listaOperadores.get(i + 1) == '%') {
+                if (operador == '*' || operador == '/') {
+                    proximoNumero = proximoNumero / 100.0;
+                } else if (operador == '+' || operador == '-') {
+                    proximoNumero = total * (proximoNumero / 100.0);
+                }
+                i++;
+            }
+
             total = executarOperacao(total, operador, proximoNumero);
         }
         return "" + total;
     }
 
     private double executarOperacao(double numero1, char operador, double numero2) {
-        double resultado = 0.0;
-
-        if (operador == '+') {
-            resultado = numero1 + numero2;
-        } else if (operador == '-') {
-            resultado = numero1 - numero2;
-        } else if (operador == '/') {
-            resultado = numero1 / numero2;
-        } else if (operador == '*') {
-            resultado = numero1 * numero2;
+        switch (operador) {
+            case '+': return numero1 + numero2;
+            case '-': return numero1 - numero2;
+            case '*': return numero1 * numero2;
+            case '/': return numero1 / numero2;
+            default: return numero2;
         }
-
-        return resultado;
     }
 
     private List<Double> obterNumeros(String expressao) {
@@ -114,12 +122,6 @@ public class Calculos {
     }
 
     private boolean isOperador(char caracter) {
-        boolean isOperador = false;
-
-        if (caracter == '-' || caracter == '+' || caracter == '/' || caracter == '*') {
-            isOperador = true;
-        }
-
-        return isOperador;
+        return caracter == '-' || caracter == '+' || caracter == '/' || caracter == '*' || caracter == '%';
     }
 }
