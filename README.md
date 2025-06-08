@@ -6,6 +6,7 @@ Projeto de uma calculadora bem simples feita em Java com Swing
 - Subtração
 - Multiplicação
 - Divisão
+- Porcentagem
 
 # Problemas / Limitações:
 - Não faz calculos com números negátivos no começo (Resolvido, 08/06/2025)
@@ -15,3 +16,4 @@ Projeto de uma calculadora bem simples feita em Java com Swing
 - Suporte para expresões matamáticas
 - Versão ciêntifica
 - Calculos com números negátivos no começo (Resolvido, 08/06/2025)
+- Respeitar a ordem matemática de (), [] e {}
