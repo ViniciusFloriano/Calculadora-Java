@@ -1,5 +1,5 @@
 # Calculadora-Java
-Projeto de uma calculadora bemm simples feita em Java com Swing
+Projeto de uma calculadora bem simples feita em Java com Swing
 
 # Funcionalidades:
 - Soma
@@ -8,11 +8,10 @@ Projeto de uma calculadora bemm simples feita em Java com Swing
 - Divisão
 
 # Problemas / Limitações:
-- Não faz calculos com números negátivos no começo
+- Não faz calculos com números negátivos no começo (Resolvido)
 - Não da para colocar dois números com virgula
 
 # Melhorias futuras planejadas:
-
 - Suporte para expresões matamáticas
 - Versão ciêntifica
-- Calculos com números negátivos no começo
+- Calculos com números negátivos no começo (Resolvido)
