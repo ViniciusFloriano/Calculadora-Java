@@ -359,11 +359,20 @@ public class TelaCalculadora extends javax.swing.JFrame {
 
 	private void botaoMaisMenosMouseClicked(java.awt.event.MouseEvent evt) {
 		String valor = visorCalculador.getText();
-		if (valor.startsWith("-")) {
-			visorCalculador.setText(valor.substring(1));
+		int idx = Math.max(
+			Math.max(valor.lastIndexOf("+"), valor.lastIndexOf("-")),
+			Math.max(valor.lastIndexOf("*"), valor.lastIndexOf("/"))
+		);
+		String inicio = (idx >= 0) ? valor.substring(0, idx + 1) : "";
+		String ultimo = (idx >= 0) ? valor.substring(idx + 1) : valor;
+		
+		if (ultimo.startsWith("(-") && ultimo.endsWith(")")) {
+        	ultimo = ultimo.substring(2, ultimo.length() - 1);
 		} else {
-			visorCalculador.setText("-" + valor);
+			ultimo = "(-" + ultimo + ")";
 		}
+
+		visorCalculador.setText(inicio + ultimo);
 	}
 
 	private void botaoIgualMouseClicked(java.awt.event.MouseEvent evt) {
