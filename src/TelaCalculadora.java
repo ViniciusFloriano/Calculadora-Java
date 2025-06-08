@@ -430,6 +430,17 @@ public class TelaCalculadora extends javax.swing.JFrame {
 
 	private void botaoPorcentoMouseClicked(java.awt.event.MouseEvent evt) {
 		String valor = visorCalculador.getText();
+		if (valor.isEmpty()) return;
+
+		// Verifica se já existe pelo menos um operador antes do %
+		boolean temOperador = valor.contains("+") || valor.contains("-") || valor.contains("*") || valor.contains("/");
+
+		// Só permite % se já houver um operador
+		if (!temOperador) return;
+
+		// Não permite dois % seguidos
+		if (valor.endsWith("%")) return;
+
 		visorCalculador.setText(valor + "%");
 	}
 
